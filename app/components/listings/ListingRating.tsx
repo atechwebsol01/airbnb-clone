@@ -19,8 +19,8 @@ const ListingRating: React.FC<ListingRatingProps> = ({
 
   return (
     <div className="flex flex-row items-center gap-1 text-sm">
-      <AiFillStar size={size} />
-      <div className="font-medium">{rating.toFixed(1)}</div>
+      <AiFillStar size={size} className="text-gold-500" />
+      <div className="font-medium text-neutral-100">{rating.toFixed(1)}</div>
       <div className="font-light text-neutral-500">
         ({reviewCount} {reviewCount === 1 ? "review" : "reviews"})
       </div>

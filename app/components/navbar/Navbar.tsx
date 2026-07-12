@@ -14,11 +14,12 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
-    <div className="fixed w-full bg-white z-10 shadow-sm">
+    <div className="fixed w-full bg-ink-950/95 backdrop-blur-md z-10 shadow-lg shadow-black/40">
       <div
         className="
           py-4
-          border-b-[1px]
+          border-b
+          border-ink-700
         "
       >
         <Container>

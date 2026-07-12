@@ -110,7 +110,7 @@ const LoginModal = () => {
           <span
             onClick={onToggle}
             className="
-              text-neutral-800
+              text-gold-400
               cursor-pointer
               hover:underline
               ml-1

@@ -186,14 +186,14 @@ const RentModal = () => {
           title="Guests"
           subtitle="How many guests do you allow?"
         />
-        <hr />
+        <hr className="border-ink-700" />
         <Counter
           onChange={(value) => setCustomValue("roomCount", value)}
           value={roomCount}
           title="Rooms"
           subtitle="How many rooms do you have?"
         />
-        <hr />
+        <hr className="border-ink-700" />
         <Counter
           onChange={(value) => setCustomValue("bathroomCount", value)}
           value={bathroomCount}
@@ -234,7 +234,7 @@ const RentModal = () => {
           errors={errors}
           required
         />
-        <hr />
+        <hr className="border-ink-700" />
         <Input
           id="description"
           label="Description"

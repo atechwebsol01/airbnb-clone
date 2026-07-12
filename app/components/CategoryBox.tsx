@@ -47,8 +47,11 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
   }, [label, params, router]);
 
   return (
-    <div
+    <button
+      type="button"
       onClick={handleClick}
+      aria-pressed={selected}
+      title={selected ? `Clear "${label}" filter` : `Filter by ${label}`}
       className={`
         flex
         flex-col
@@ -57,16 +60,17 @@ const CategoryBox: React.FC<CategoryBoxProps> = ({
         gap-2
         p-3
         border-b-2
-        hover:text-neutral-800
+        hover:text-gold-400
         transition
         cursor-pointer
-        ${selected ? "border-b-neutral-800" : "border-transparent"}
-        ${selected ? "text-neutral-800" : "text-neutral-500"}
+        shrink-0
+        ${selected ? "border-b-gold-500" : "border-transparent"}
+        ${selected ? "text-gold-500" : "text-neutral-400"}
       `}
     >
       <Icon size={26} />
-      <div className="font-medium text-sm">{label}</div>
-    </div>
+      <div className="font-medium text-sm whitespace-nowrap">{label}</div>
+    </button>
   );
 };
 

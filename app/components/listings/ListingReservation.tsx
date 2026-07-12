@@ -27,10 +27,10 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
   return (
     <div
       className="
-        bg-white
-        rounded-xl
-        border-[1px]
-        border-neutral-200
+        bg-ink-900
+        rounded-2xl
+        border
+        border-ink-700
         overflow-hidden
       "
     >
@@ -43,20 +43,22 @@ const ListingReservation: React.FC<ListingReservationProps> = ({
           p-4
         "
       >
-        <div className="text-2xl font-semibold">$ {price}</div>
-        <div className="font-light text-neutral-600">night</div>
+        <div className="text-2xl font-semibold text-gold-500">
+          $ {price}
+        </div>
+        <div className="font-light text-neutral-400">night</div>
       </div>
-      <hr />
+      <hr className="border-ink-700" />
       <Calendar
         value={dateRange}
         disabledDates={disabledDates}
         onChange={(value) => onChangeDate(value.selection)}
       />
-      <hr />
+      <hr className="border-ink-700" />
       <div className="p-4">
         <Button disabled={disabled} label="Reserve" onClick={onSubmit} />
       </div>
-      <hr />
+      <hr className="border-ink-700" />
       <div
         className="
           p-4

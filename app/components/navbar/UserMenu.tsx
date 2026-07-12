@@ -40,7 +40,8 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
-        <div
+        <button
+          type="button"
           onClick={onRent}
           className="
             hidden
@@ -50,13 +51,14 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             py-3
             px-4
             rounded-full
-            hover:bg-neutral-100
+            text-neutral-200
+            hover:bg-ink-800
             transition
             cursor-pointer
           "
         >
           Airbnb your home
-        </div>
+        </button>
         <button
           type="button"
           onClick={toggleOpen}
@@ -67,16 +69,19 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             p-4
             md:py-1
             md:px-2
-            border-[1px]
-            border-neutral-200
+            border
+            border-ink-600
+            bg-ink-900
             flex
             flex-row
             items-center
             gap-3
             rounded-full
             cursor-pointer
+            hover:border-gold-500/50
             hover:shadow-md
             transition
+            text-neutral-200
           "
         >
           <AiOutlineMenu />
@@ -90,10 +95,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           className="
             absolute
             rounded-xl
-            shadow-md
+            shadow-lg
+            shadow-black/50
             w-[40vw]
             md:w-3/4
-            bg-white
+            bg-ink-900
+            border
+            border-ink-700
             overflow-hidden
             right-0
             top-12
@@ -120,7 +128,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   onClick={() => router.push("/properties")}
                 />
                 <MenuItem label="Airbnb my home" onClick={rentModal.onOpen} />
-                <hr />
+                <hr className="border-ink-700" />
                 <MenuItem label="Logout" onClick={() => signOut()} />
               </>
             ) : (

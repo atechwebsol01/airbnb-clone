@@ -81,7 +81,8 @@ const Modal: React.FC<ModalProps> = ({
           z-50
           outline-none
           focus:outline-none
-          bg-neutral-800/70
+          bg-black/80
+          backdrop-blur-sm
         "
       >
         <div
@@ -114,14 +115,16 @@ const Modal: React.FC<ModalProps> = ({
                 h-full
                 lg:h-auto
                 md:h-auto
-                border-0
-                rounded-lg
-                shadow-lg
+                border
+                border-ink-700
+                rounded-2xl
+                shadow-2xl
+                shadow-black/60
                 relative
                 flex
                 flex-col
                 w-full
-                bg-white
+                bg-ink-900
                 outline-none
                 focus:outline-none
               "
@@ -135,7 +138,8 @@ const Modal: React.FC<ModalProps> = ({
                   rounded-t
                   justify-center
                   relative
-                  border-b-[1px]
+                  border-b
+                  border-ink-700
                 "
               >
                 <button
@@ -145,7 +149,8 @@ const Modal: React.FC<ModalProps> = ({
                   className="
                     p-1
                     border-0
-                    hover:opacity-70
+                    text-neutral-400
+                    hover:text-gold-400
                     transition
                     absolute
                     left-9
@@ -153,7 +158,9 @@ const Modal: React.FC<ModalProps> = ({
                 >
                   <IoMdClose size={18} />
                 </button>
-                <div className="text-lg font-semibold">{title}</div>
+                <div className="text-lg font-semibold font-display text-neutral-50">
+                  {title}
+                </div>
               </div>
               {/* BODY */}
               <div className="relative p-6 flex-auto">{body}</div>

@@ -39,11 +39,11 @@ const ReviewList: React.FC<ReviewListProps> = ({ reviews }) => {
                 <AiFillStar
                   key={i}
                   size={14}
-                  className={i < review.rating ? "" : "opacity-20"}
+                  className={i < review.rating ? "text-gold-500" : "text-ink-600"}
                 />
               ))}
             </div>
-            <div className="font-light text-neutral-600">
+            <div className="font-light text-neutral-400">
               {review.comment}
             </div>
           </div>

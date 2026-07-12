@@ -1,5 +1,6 @@
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
+import HomeHero from "@/app/components/HomeHero";
 import ListingCard from "@/app/components/listings/ListingCard";
 
 import getListings, { IListingsParams } from "@/app/actions/getListings";
@@ -15,10 +16,18 @@ interface HomeProps {
 const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
+  const hasFilters = Object.keys(searchParams).length > 0;
+
+  const hero = !hasFilters && (
+    <div className="-mt-28">
+      <HomeHero />
+    </div>
+  );
 
   if (listings.length === 0) {
     return (
       <ClientOnly>
+        {hero}
         <EmptyState showReset />
       </ClientOnly>
     );
@@ -26,10 +35,11 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   return (
     <ClientOnly>
+      {hero}
       <Container>
         <div
-          className="
-            pt-24
+          className={`
+            ${hasFilters ? "pt-24" : "pt-12"}
             grid
             grid-cols-1
             sm:grid-cols-2
@@ -38,7 +48,7 @@ const Home = async ({ searchParams }: HomeProps) => {
             xl:grid-cols-5
             2xl:grid-cols-6
             gap-8
-          "
+          `}
         >
           {listings.map((listing) => (
             <ListingCard

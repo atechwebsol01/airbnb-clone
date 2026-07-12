@@ -36,21 +36,28 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
         return (
           <div
             onClick={() => open?.()}
+            role="button"
+            tabIndex={0}
+            aria-label="Upload an image"
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") open?.();
+            }}
             className="
               relative
               cursor-pointer
-              hover:opacity-70
+              hover:border-gold-500
               transition
               border-dashed
               border-2
               p-20
-              border-neutral-300
+              border-ink-600
+              rounded-xl
               flex
               flex-col
               justify-center
               items-center
               gap-4
-              text-neutral-600
+              text-neutral-400
             "
           >
             <TbPhotoPlus size={50} />

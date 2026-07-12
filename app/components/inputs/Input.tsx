@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
         <BiDollar
           size={24}
           className="
-            text-neutral-700
+            text-neutral-400
             absolute
             top-5
             left-2
@@ -53,7 +53,8 @@ const Input: React.FC<InputProps> = ({
           p-4
           pt-6
           font-light
-          bg-white
+          bg-ink-800
+          text-neutral-100
           border-2
           rounded-md
           outline-none
@@ -61,8 +62,8 @@ const Input: React.FC<InputProps> = ({
           disabled:opacity-70
           disabled:cursor-not-allowed
           ${formatPrice ? "pl-9" : "pl-4"}
-          ${errors[id] ? "border-rose-500" : "border-neutral-300"}
-          ${errors[id] ? "focus:border-rose-500" : "focus:border-black"}
+          ${errors[id] ? "border-rose-500" : "border-ink-600"}
+          ${errors[id] ? "focus:border-rose-500" : "focus:border-gold-500"}
         `}
       />
       <label

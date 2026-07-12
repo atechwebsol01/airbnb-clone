@@ -54,7 +54,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-4 border-t-[1px] pt-6">
+    <div className="flex flex-col gap-4 border-t border-ink-700 pt-6">
       <Heading title="Leave a review" subtitle="Tell others about your stay" />
       <div className="flex flex-row gap-1">
         {Array.from({ length: 5 }).map((_, i) => {
@@ -73,8 +73,8 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
                 size={28}
                 className={
                   value <= (hoverRating || rating)
-                    ? "text-black"
-                    : "text-neutral-300"
+                    ? "text-gold-500"
+                    : "text-ink-600"
                 }
               />
             </button>
@@ -92,15 +92,17 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
           w-full
           p-4
           font-light
-          bg-white
+          bg-ink-800
+          text-neutral-100
           border-2
           rounded-md
           outline-none
           transition
           disabled:opacity-70
           disabled:cursor-not-allowed
-          border-neutral-300
-          focus:border-black
+          border-ink-600
+          focus:border-gold-500
+          placeholder:text-neutral-500
         "
       />
       <div className="w-40">

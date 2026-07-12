@@ -56,12 +56,15 @@ const Search = () => {
       onClick={searchModal.onOpen}
       aria-label="Search"
       className="
-        border-[1px]
+        border
+        border-ink-600
+        bg-ink-900
         w-full
         md:w-auto
         py-2
         rounded-full
         shadow-sm
+        hover:border-gold-500/50
         hover:shadow-md
         transition
         cursor-pointer
@@ -80,6 +83,7 @@ const Search = () => {
             text-sm
             font-semibold
             px-6
+            text-neutral-100
           "
         >
           {locationLabel}
@@ -91,9 +95,11 @@ const Search = () => {
             text-sm
             font-semibold
             px-6
-            border-x-[1px]
+            border-x
+            border-ink-600
             flex-1
             text-center
+            text-neutral-100
           "
         >
           {durationLabel}
@@ -103,7 +109,7 @@ const Search = () => {
             text-sm
             pl-6
             pr-2
-            text-gray-600
+            text-neutral-400
             flex
             flex-row
             items-center
@@ -114,9 +120,9 @@ const Search = () => {
           <div
             className="
               p-2
-              bg-rose-500
+              bg-gold-500
               rounded-full
-              text-white
+              text-ink-950
             "
           >
             <BiSearch size={18} />

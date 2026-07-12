@@ -1,6 +1,7 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { IoCloseCircleOutline } from "react-icons/io5";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import {
   GiBarn,
@@ -99,11 +100,13 @@ export const categories = [
 ];
 
 const Categories = () => {
+  const router = useRouter();
   const params = useSearchParams();
   const category = params?.get("category");
   const pathname = usePathname();
 
   const isMainPage = pathname === "/";
+  const hasActiveFilters = !!params && params.toString().length > 0;
 
   if (!isMainPage) {
     return null;
@@ -117,18 +120,52 @@ const Categories = () => {
           flex
           flex-row
           items-center
-          justify-between
-          overflow-x-auto
+          gap-4
         "
       >
-        {categories.map((item) => (
-          <CategoryBox
-            key={item.label}
-            label={item.label}
-            icon={item.icon}
-            selected={category === item.label}
-          />
-        ))}
+        <div
+          className="
+            flex
+            flex-row
+            items-center
+            justify-between
+            overflow-x-auto
+            flex-1
+            gap-1
+          "
+        >
+          {categories.map((item) => (
+            <CategoryBox
+              key={item.label}
+              label={item.label}
+              icon={item.icon}
+              selected={category === item.label}
+            />
+          ))}
+        </div>
+        {hasActiveFilters && (
+          <button
+            type="button"
+            onClick={() => router.push("/")}
+            className="
+              hidden
+              sm:flex
+              flex-row
+              items-center
+              gap-1
+              text-sm
+              font-medium
+              text-neutral-400
+              hover:text-gold-400
+              transition
+              whitespace-nowrap
+              pb-3
+            "
+          >
+            <IoCloseCircleOutline size={16} />
+            Clear filters
+          </button>
+        )}
       </div>
     </Container>
   );

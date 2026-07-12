@@ -31,57 +31,63 @@ const Counter: React.FC<CounterProps> = ({
   return (
     <div className="flex flex-row items-center justify-between">
       <div className="flex flex-col">
-        <div className="font-medium">{title}</div>
-        <div className="font-light text-gray-600">{subtitle}</div>
+        <div className="font-medium text-neutral-100">{title}</div>
+        <div className="font-light text-neutral-400">{subtitle}</div>
       </div>
       <div className="flex flex-row items-center gap-4">
-        <div
+        <button
+          type="button"
           onClick={onReduce}
+          aria-label={`Decrease ${title}`}
           className="
             w-10
             h-10
             rounded-full
-            border-[1px]
-            border-neutral-400
+            border
+            border-ink-600
             flex
             items-center
             justify-center
-            text-neutral-600
+            text-neutral-300
             cursor-pointer
-            hover:opacity-80
+            hover:border-gold-500
+            hover:text-gold-400
             transition
           "
         >
           <AiOutlineMinus />
-        </div>
+        </button>
         <div
           className="
             font-light
             text-xl
-            text-neutral-600
+            text-neutral-100
           "
         >
           {value}
         </div>
-        <div
+        <button
+          type="button"
           onClick={onAdd}
+          aria-label={`Increase ${title}`}
           className="
             w-10
             h-10
             rounded-full
-            border-[1px]
-            border-neutral-400
+            border
+            border-ink-600
             flex
             items-center
             justify-center
-            text-neutral-600
+            text-neutral-300
             cursor-pointer
-            hover:opacity-80
+            hover:border-gold-500
+            hover:text-gold-400
             transition
           "
         >
           <AiOutlinePlus />
-        </div>
+        </button>
       </div>
     </div>
   );
