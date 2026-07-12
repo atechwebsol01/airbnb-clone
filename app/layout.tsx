@@ -9,6 +9,7 @@ import RentModal from "@/app/components/modals/RentModal";
 import ToasterProvider from "@/app/providers/ToasterProvider";
 
 import ClientOnly from "./components/ClientOnly";
+import Footer from "./components/Footer";
 import getCurrentUser from "./actions/getCurrentUser";
 
 import "./globals.css";
@@ -69,6 +70,7 @@ export default async function RootLayout({
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <div className="pb-20 pt-28">{children}</div>
+        <Footer />
       </body>
     </html>
   );
