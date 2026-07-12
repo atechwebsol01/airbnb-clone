@@ -18,15 +18,15 @@ const HomeHero: React.FC<HomeHeroProps> = ({ stats }) => {
   return (
     <div className="relative h-[82vh] min-h-[560px] w-full overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=80"
-        alt="Luxury villa with infinity pool"
+        src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=2000&q=80"
+        alt="Luxury villa at dusk"
         fill
         priority
         className="object-cover animate-slow-zoom"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/30" />
-      {/* pt offsets the fixed navbar + category bar (~10rem) so the headline is centered in the VISIBLE area */}
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-6 gap-6 pt-40">
+      {/* pt offsets the fixed navbar + category bar (~11rem tall) so the headline centers in the VISIBLE area */}
+      <div className="relative h-full flex flex-col items-center justify-center text-center px-6 gap-6 pt-52">
         <h1 className="font-display text-4xl md:text-6xl font-bold text-neutral-50 max-w-3xl leading-tight">
           Find your next{" "}
           <span className="text-gold-500 italic">unforgettable</span> stay

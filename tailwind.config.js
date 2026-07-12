@@ -33,12 +33,12 @@ module.exports = {
       },
       keyframes: {
         "slow-zoom": {
-          "0%": { transform: "scale(1)" },
-          "100%": { transform: "scale(1.12)" },
+          "0%": { transform: "scale(1.18)" },
+          "100%": { transform: "scale(1)" },
         },
       },
       animation: {
-        "slow-zoom": "slow-zoom 18s ease-out infinite alternate",
+        "slow-zoom": "slow-zoom 14s ease-out forwards",
       },
     },
   },
