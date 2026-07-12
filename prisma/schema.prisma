@@ -21,6 +21,7 @@ model User {
   accounts     Account[]
   listings     Listing[]
   reservations Reservation[]
+  reviews      Review[]
 }
 
 model Account {
@@ -58,6 +59,7 @@ model Listing {
 
   user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   reservations Reservation[]
+  reviews      Review[]
 }
 
 model Reservation {
@@ -71,4 +73,20 @@ model Reservation {
 
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
   listing Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  review  Review?
+}
+
+model Review {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+
+  userId        String @db.ObjectId
+  listingId     String @db.ObjectId
+  reservationId String @unique @db.ObjectId
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  listing     Listing     @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
 }

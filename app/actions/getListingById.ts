@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import withRating from "@/app/libs/withRating";
 
 interface IParams {
   listingId?: string;
@@ -14,6 +15,7 @@ export default async function getListingById(params: IParams) {
       },
       include: {
         user: true,
+        reviews: { select: { rating: true } },
       },
     });
 
@@ -22,7 +24,7 @@ export default async function getListingById(params: IParams) {
     }
 
     return {
-      ...listing,
+      ...withRating(listing),
       createdAt: listing.createdAt.toISOString(),
       user: {
         ...listing.user,

@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import withRating from "@/app/libs/withRating";
 
 import getCurrentUser from "./getCurrentUser";
 
@@ -16,10 +17,13 @@ export default async function getFavoriteListings() {
           in: [...(currentUser.favoriteIds || [])],
         },
       },
+      include: {
+        reviews: { select: { rating: true } },
+      },
     });
 
     const safeFavorites = favorites.map((favorite) => ({
-      ...favorite,
+      ...withRating(favorite),
       createdAt: favorite.createdAt.toISOString(),
     }));
 

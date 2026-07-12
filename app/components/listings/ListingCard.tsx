@@ -10,6 +10,7 @@ import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+import ListingRating from "./ListingRating";
 
 interface ListingCardProps {
   data: SafeListing;
@@ -104,8 +105,11 @@ const ListingCard: React.FC<ListingCardProps> = ({
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>
-        <div className="font-semibold text-lg">
-          {location?.region}, {location?.label}
+        <div className="flex flex-row items-center justify-between gap-2">
+          <div className="font-semibold text-lg">
+            {location?.region}, {location?.label}
+          </div>
+          <ListingRating rating={data.rating} reviewCount={data.reviewCount} />
         </div>
         <div className="font-light text-neutral-500">
           {reservationDate || data.category}

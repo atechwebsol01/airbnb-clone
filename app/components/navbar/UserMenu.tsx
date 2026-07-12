@@ -57,8 +57,12 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         >
           Airbnb your home
         </div>
-        <div
+        <button
+          type="button"
           onClick={toggleOpen}
+          aria-label="Open user menu"
+          aria-haspopup="menu"
+          aria-expanded={isOpen}
           className="
             p-4
             md:py-1
@@ -79,7 +83,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           <div className="hidden md:block">
             <Avatar src={currentUser?.image} />
           </div>
-        </div>
+        </button>
       </div>
       {isOpen && (
         <div

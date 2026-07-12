@@ -7,12 +7,15 @@ import { SafeUser } from "@/app/types";
 
 import Heading from "../Heading";
 import HeartButton from "../HeartButton";
+import ListingRating from "./ListingRating";
 
 interface ListingHeadProps {
   title: string;
   locationValue: string;
   imageSrc: string;
   id: string;
+  rating: number;
+  reviewCount: number;
   currentUser?: SafeUser | null;
 }
 
@@ -21,6 +24,8 @@ const ListingHead: React.FC<ListingHeadProps> = ({
   locationValue,
   imageSrc,
   id,
+  rating,
+  reviewCount,
   currentUser,
 }) => {
   const { getByValue } = useCountries();
@@ -33,6 +38,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
         title={title}
         subtitle={`${location?.region}, ${location?.label}`}
       />
+      <ListingRating rating={rating} reviewCount={reviewCount} size={16} />
       <div
         className="
           w-full

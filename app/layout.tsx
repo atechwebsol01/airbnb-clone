@@ -1,4 +1,5 @@
 import { Nunito } from "next/font/google";
+import { Metadata } from "next";
 
 import Navbar from "@/app/components/navbar/Navbar";
 import LoginModal from "@/app/components/modals/LoginModal";
@@ -12,9 +13,32 @@ import getCurrentUser from "./actions/getCurrentUser";
 
 import "./globals.css";
 
-export const metadata = {
-  title: "Airbnb",
-  description: "Airbnb Clone",
+const siteUrl = "https://airbnbclone-red.vercel.app";
+const description =
+  "Discover unique places to stay, from beachfront villas to mountain chalets. Browse, book, and host with a full-featured Airbnb clone.";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Airbnb Clone",
+    template: "%s | Airbnb Clone",
+  },
+  description,
+  keywords: ["airbnb clone", "vacation rentals", "book a stay", "travel"],
+  openGraph: {
+    title: "Airbnb Clone",
+    description,
+    url: siteUrl,
+    siteName: "Airbnb Clone",
+    images: [{ url: "/images/logo.png", width: 200, height: 200 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Airbnb Clone",
+    description,
+    images: ["/images/logo.png"],
+  },
 };
 
 const font = Nunito({

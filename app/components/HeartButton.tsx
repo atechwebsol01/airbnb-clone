@@ -20,8 +20,11 @@ const HeartButton: React.FC<HeartButtonProps> = ({
   });
 
   return (
-    <div
+    <button
+      type="button"
       onClick={toggleFavorite}
+      aria-label={hasFavorited ? "Remove from favorites" : "Add to favorites"}
+      aria-pressed={hasFavorited}
       className="
         relative
         hover:opacity-80
@@ -42,7 +45,7 @@ const HeartButton: React.FC<HeartButtonProps> = ({
         size={24}
         className={hasFavorited ? "fill-rose-500" : "fill-neutral-500/70"}
       />
-    </div>
+    </button>
   );
 };
 

@@ -44,7 +44,9 @@ const RegisterModal = () => {
         loginModal.onOpen();
       })
       .catch((error) => {
-        toast.error("Something went wrong.");
+        toast.error(
+          error?.response?.data?.error || "Something went wrong."
+        );
       })
       .finally(() => {
         setIsLoading(false);
@@ -65,6 +67,7 @@ const RegisterModal = () => {
         disabled={isLoading}
         register={register}
         errors={errors}
+        pattern={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
         required
       />
       <Input
@@ -82,6 +85,7 @@ const RegisterModal = () => {
         disabled={isLoading}
         register={register}
         errors={errors}
+        minLength={8}
         required
       />
     </div>

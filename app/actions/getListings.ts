@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import withRating from "@/app/libs/withRating";
 
 export interface IListingsParams {
   userId?: string;
@@ -80,10 +81,14 @@ export default async function getListings(params: IListingsParams) {
       orderBy: {
         createdAt: "desc",
       },
+      take: 50,
+      include: {
+        reviews: { select: { rating: true } },
+      },
     });
 
     const safeListings = listings.map((listing) => ({
-      ...listing,
+      ...withRating(listing),
       createdAt: listing.createdAt.toISOString(),
     }));
 

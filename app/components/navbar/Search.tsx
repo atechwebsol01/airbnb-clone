@@ -51,8 +51,10 @@ const Search = () => {
   }, [guestCount]);
 
   return (
-    <div
+    <button
+      type="button"
       onClick={searchModal.onOpen}
+      aria-label="Search"
       className="
         border-[1px]
         w-full
@@ -121,7 +123,7 @@ const Search = () => {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 

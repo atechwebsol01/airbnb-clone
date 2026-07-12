@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import withRating from "@/app/libs/withRating";
 
 interface IParams {
   listingId?: string;
@@ -27,7 +28,11 @@ export default async function getReservations(params: IParams) {
     const reservations = await prisma.reservation.findMany({
       where: query,
       include: {
-        listing: true,
+        listing: {
+          include: {
+            reviews: { select: { rating: true } },
+          },
+        },
       },
       orderBy: {
         createdAt: "desc",
@@ -40,7 +45,7 @@ export default async function getReservations(params: IParams) {
       startDate: reservation.startDate.toISOString(),
       endDate: reservation.endDate.toISOString(),
       listing: {
-        ...reservation.listing,
+        ...withRating(reservation.listing),
         createdAt: reservation.listing.createdAt.toISOString(),
       },
     }));
